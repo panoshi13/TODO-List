@@ -1,0 +1,37 @@
+:root{
+    --color-x: #0f3057;
+    --color-y: #00587a;
+    --color-z: #008891;
+    --color-a: #e7e7de;
+}
+
+body{
+    background-color: var(--color-x);
+    font-family: 'Roboto', sans-serif !important;
+}
+
+body td{
+    color: var(--color-a) !important;
+    font-size: 20px;
+}
+
+.bg-primary{
+    background-color: var(--color-y) !important;
+}
+
+.card{
+    width: 700px;
+}
+
+.table{
+    width: 700px!important;
+}
+
+.btn-warning{
+    background-color: var(--color-z) !important ;
+}
+
+#terminado{
+    width: 35px;
+    height: 35px;
+}
