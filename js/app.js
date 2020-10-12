@@ -69,30 +69,35 @@ $(document).ready(function () {
                               </td>
                           </tr>`;
     } else {
-      var dato_actualizado;
-      var acabado;
-      var datos_traidos = localStorage.getItem('valores')
-      var json_datos_traidos = JSON.parse(datos_traidos)
-
-      json_datos_traidos.forEach((element,i) => {
-          if (i == indice) {
-            dato_actualizado = element
-          }
+      var check;
+      var datitoo;
+      var traer = localStorage.getItem('valores');
+      var traer_json = JSON.parse(traer)
+      traer_json.forEach((element,i) => {
+        if (i == indice) {
+          check = element.terminado
+        }
       });
 
-      datos.splice(indice, 1, dato_actualizado);
+      datitoo = {
+        id: key,
+        nombre: nombre,
+        terminado: check,
+      }
+      var hechoo
+      datos.splice(indice, 1, datitoo);
       localStorage.removeItem("valores");
       localStorage.setItem("valores", JSON.stringify(datos));
       fila.innerHTML = "";
       datos.forEach((element) => {
         if (element.terminado === true) {
-          acabado = "checked";
+          hechoo = "checked";
         } else {
-          acabado = "";
+          hechoo = "";
         }
         fila.innerHTML += `<tr>
                                 <td scope='row'>
-                                    <input type='checkbox' name='' id='terminado' ${acabado} terminar-task='${element.id}'>
+                                    <input type='checkbox' name='' id='terminado' ${hechoo} terminar-task='${element.id}'>
                                 </td>
                                 <td width='450'style="vertical-align:middle;">${element.nombre}</td>
                                 <td>
